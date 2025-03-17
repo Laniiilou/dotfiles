@@ -15,6 +15,7 @@ else
   echo "Brewfile not found in ~/dotfiles."
   exit 1
 fi
+
 # Install Oh My Zsh if not already installed
 if [[ ! -d ~/.oh-my-zsh ]]; then
   echo "Installing Oh My Zsh..."
@@ -27,6 +28,8 @@ if [[ -f ~/.zshrc.pre-oh-my-zsh ]]; then
   rm ~/.zshrc
   mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
 fi
+# Oh-my-zsh brings up a new shell here with the applied config, to continue the script, simply run 
+# "exit"
 
 # Install zsh-autosuggestions plugin if not already installed
 if [[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ]]; then
