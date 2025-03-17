@@ -31,10 +31,33 @@ fi
 # Oh-my-zsh brings up a new shell here with the applied config, to continue the script, simply run 
 # "exit"
 
+ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
+
 # Install zsh-autosuggestions plugin if not already installed
 if [[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ]]; then
   echo "Installing zsh-autosuggestions..."
   git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 fi
-# Oh-my-zsh brings up a new shell here with the applied config, to continue the script, simply run 
-# "exit"
+
+# Install zsh-syntax-highlighting plugin if not already installed
+if [[ ! -d $ZSH_CUSTOM/plugins/zsh-syntax-highlighting ]]; then
+  echo "Installing zsh-syntax-highlighting..."
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+fi
+
+# Install fast-syntax-highlighting plugin if not already installed
+if [[ ! -d $ZSH_CUSTOM/plugins/fast-syntax-highlighting ]]; then
+  echo "Installing fast-syntax-highlighting..."
+  git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+fi
+
+# Install zsh-autocomplete plugin if not already installed
+if [[ ! -d $ZSH_CUSTOM/plugins/zsh-autocomplete ]]; then
+  echo "Installing zsh-autocomplete..."
+  git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
+fi
+
+# Apply zsh config
+source ~/.zshrc
+
+echo "Dotfiles installation and configuration complete."
